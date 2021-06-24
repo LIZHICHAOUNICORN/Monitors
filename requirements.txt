@@ -1,0 +1,6 @@
+-i https://mirrors.aliyun.com/pypi/simple/
+django==2.0.0
+celery==4.3.0
+flower==0.9.3
+gunicorn==20.0.4
+
