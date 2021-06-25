@@ -1,14 +1,14 @@
-import celery
-from celery import shared_task, task
-from celery.utils.log import get_task_logger
+from __future__ import absolute_import
+from celery import shared_task
+
 import time
 import sys
 from os import path
 import logging as logger
-import json
 import requests
-import config
-import random
+# 注意：这是celery的bug, 如果直接像下面写，则会提示找不到task
+# import audi_config
+from . import audi_config as config
 
 FORMAT = '%(asctime)s %(filename)s %(funcName)s %(lineno)d %(message)s'
 logger.basicConfig(level=logger.DEBUG, format=FORMAT)
@@ -62,7 +62,13 @@ class CheckProxyService(object):
             logger.info("service url: {}".format(service_url))
             # Use default wave format audio file as client data, split it.
             service_result = self.send_audio_with_header(service_url, self.audio_data)
-            assert service_result == True
+            logger.debug("email host user: {}".format(config.EMAIL_HOST_USER))
+#            if True:
+#                send_mail('Audi proxy service failed',
+#                          '',
+#                          config.EMAIL_HOST_USER,
+#                          config.EMAIL_TO_USER)
+
 
         return True
 
@@ -92,6 +98,7 @@ class CheckProxyService(object):
         logger.info("response: dm state: {}".format(resp.headers["dm_state"]))
         logger.info("response body: {}".format(resp.text))
         return resp
+
 
 @shared_task
 def CheckAudiVoice(msg=None):
