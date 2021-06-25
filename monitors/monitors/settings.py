@@ -124,9 +124,9 @@ STATIC_URL = '/static/'
 
 # Set up celery config
 # The backend used to store task results (tombstones). Can be one of the following:
-CELERY_RESULT_BACKEND = "redis://localhost:6379/5"
+CELERY_RESULT_BACKEND = "redis://localhost:6379/7"
 # Celery broker settings
-CELERY_BROKER_URL = "redis://localhost:6379/6"
+CELERY_BROKER_URL = "redis://localhost:6379/8"
 # Late ack means the task messages will be acknowledged after the task has been executed,
 # not just before (the default behavior).
 # celery log
@@ -145,6 +145,12 @@ CELERYD_MAX_TASKS_PER_CHILD = 10
 # to resolve django.db.utils.OperationalError:
 # (1071, 'Specified key was too long; max key length is 767 bytes')
 DJANGO_CELERY_RESULTS_TASK_ID_MAX_LENGTH = 191
-
 # celery flower timezone
 CELERY_TIMEZONE = 'Asia/Shanghai'
+
+IS_SEND_EMAIL = 1
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_PORT = 25
+EMAIL_USE_TLS = True
+EMAIL_TO_USER = []
