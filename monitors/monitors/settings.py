@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'audi',
 ]
 
 MIDDLEWARE = [
@@ -120,3 +121,30 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Set up celery config
+# The backend used to store task results (tombstones). Can be one of the following:
+CELERY_RESULT_BACKEND = "redis://localhost:6379/5"
+# Celery broker settings
+CELERY_BROKER_URL = "redis://localhost:6379/6"
+# Late ack means the task messages will be acknowledged after the task has been executed,
+# not just before (the default behavior).
+# celery log
+CELERY_HIJACK_ROOT_LOGGER = False
+
+CELERY_TASK_ACKS_LATE = True
+# Task hard time limit in seconds. The worker processing the
+# task will be killed and replaced with a new one when
+# this is exceeded.
+CELERY_TASK_TIME_LIMIT = 1 * 60
+# The number of concurrent worker processes/threads/green threads executing tasks.
+CELERY_CONCURRENCY = 4
+# celery after long running may be memory leak, so every run 10 tasks
+# kill this worker
+CELERYD_MAX_TASKS_PER_CHILD = 10
+# to resolve django.db.utils.OperationalError:
+# (1071, 'Specified key was too long; max key length is 767 bytes')
+DJANGO_CELERY_RESULTS_TASK_ID_MAX_LENGTH = 191
+
+# celery flower timezone
+CELERY_TIMEZONE = 'Asia/Shanghai'
