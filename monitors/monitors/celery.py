@@ -52,7 +52,7 @@ platforms.C_FORCE_ROOT = True
 app.conf.update(CELERYBEAT_SCHEDULE={
     'task': {
         'task': 'audi.tasks.CheckAudiVoice',
-        'schedule': timedelta(seconds=10),
+        'schedule': timedelta(seconds=20),
         'args': ()
     }
 })
