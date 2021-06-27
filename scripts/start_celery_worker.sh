@@ -1,4 +1,4 @@
 #! /usr/bin/zsh
-cd /home/mobvoi/disk-ext/Downloads/lmproject
-source ../lmproject_env/bin/activate
-exec celery -A autolm worker -l debug
+cd /path/to/project
+source /conda_env/bin/activate
+exec celery -A monitors worker -l debug
