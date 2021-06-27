@@ -1,2 +1,17 @@
 # Monitors
-Use website to monitor service
+使用 Django+celery+flower 搭建支持后台设置的定时任务以及异步任务的调度系统。
+
+## 主要功能
+- 使用Django自带管理后台，支持后台管理。
+- 使用celery， 支持单机、多机的定时任务及异步任务的执行。
+- 支持使用flower，查看任务执行情况及出错的栈信息。
+
+
+## TODOLIST
+- 支持邮件报警提醒。
+- 支持无代码方式（通过后台创建预定义定时任务及异步任务）。
+- 支持markdown文本方式博客记录。
+- 支持Oauth登陆，例如GitHub,QQ登录等。
+- 完整的评论功能，包括发表回复评论，以及评论的邮件提醒，支持Markdown。
+- 支持`Memcache`缓存，支持缓存自动刷新。
+- 支持`profile` 定位性能问题。
