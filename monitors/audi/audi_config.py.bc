@@ -1,0 +1,28 @@
+AUDI_HEADERS = {
+  "Content-Type": "audio/x-wav;codec=pcm;bit=16;rate=16000",
+  "address": "",
+  "appkey": "XXXXXXXXXXXXXXXXXXXX",
+  "device_id": "test_device_id",
+  "msg_id": "XXXXXXX",
+  "output": "lite",
+  "silence_detection": "enable",
+  "task": "",
+  "user_id": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "source": "debug",
+}
+
+AUDI_APPEKY = "XXXXXXXXXXXXXXXXXXXXXXXXX"
+
+AUDI_AUDIO_FILE = "/data/users/zhichaoli/code/MonitorProxyService/Monitors/monitors/audi/Origin.wav"
+
+AUDI_SERVER_URLS = [
+    "voice-search-porsche-dev.mobvoi.com",
+    "voice-search-porsche-pre.mobvoi.com",
+]
+
+AUDI_CHECK_PATH = "/onebox"
+
+DEFAULT_STATUS = "/status"
+
+EMAIL_HOST_USER = "100000@qq.com"
+EMAIL_TO_USER = ["100000@qq.com", ]

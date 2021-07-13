@@ -69,7 +69,6 @@ class CheckProxyService(object):
 #                          config.EMAIL_HOST_USER,
 #                          config.EMAIL_TO_USER)
 
-
         return True
 
     def send_audio_with_header(self, url, post_data, default_headers=config.AUDI_HEADERS):
